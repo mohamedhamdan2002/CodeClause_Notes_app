@@ -1,0 +1,68 @@
+{%extends 'base.html'%}
+{% block title %}Search Result {% endblock title %}
+{%block content%}
+
+<div style="direction: rtl;" class="wrapper">
+    <!-- Content Wrapper. Contains page content -->
+    <div   class="content-wrapper p-5">
+      <!-- Content Header (Page header) -->
+
+              <div class="row mb-2">
+                <div class="col-sm-6">
+                  <h1>Search Result</h1>
+                </div>
+ 
+              </div>
+      
+          <!-- Main content -->
+          <section class="content row row-cols-4">                  
+            <!-- Default box -->
+            {% for note in notes %}
+            <div class="card card-solid" style="width: 18rem;">
+              <div class="card-body pb-0">
+                <div class="row d-flex align-items-stretch">
+                      <div class="card-body pt-0">
+                        <div class="row">
+                          <div class="colcol-sm-6">
+                            <h2 class="lead"><b>{{ note.title }}</b></h2>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        {{ note.notes}}
+                      </div>
+                      
+                      <div class="card-footer">
+                        <div class="text-right">
+                          <a href="{% url 'delete' note.id %}" class="btn btn-sm bg-danger">
+                            <i class="fas fa-trash">delete</i>
+                          </a>
+                          <a href="{% url 'update' note.id %}" class="btn btn-sm btn-primary">
+                            <i class="fas fa-book"></i> update
+                          </a>
+                        </div>
+                      </div>
+                    
+                </div>
+         
+              </div>
+                <!-- /.card-body -->
+                
+                <!-- /.card-footer -->
+            </div>
+              {% endfor %}
+            <!-- /.card -->
+      
+          </section>
+          <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+      
+    </div>
+    <!-- /.content-wrapper -->
+  </div>  
+{%endblock content%}
+
+
+
+

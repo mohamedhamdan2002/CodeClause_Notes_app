@@ -1,0 +1,57 @@
+{% extends 'base.html'%}
+{% block title %}Details{% endblock title %}
+{%block content%}
+
+<div style="direction: rtl;" class="wrapper">
+    <!-- Content Wrapper. Contains page content -->
+    <div   class="content-wrapper p-5">
+      <!-- Content Header (Page header) -->
+
+              <div class="row mb-2">
+                <div class="col-sm-6">
+                  <h1>Detail</h1>
+                </div>
+ 
+              </div>
+      
+          <!-- Main content -->
+                          
+            <!-- Default box -->
+
+            <div class="card card-solid" style="width: 18rem;">
+              <div class="card-body pb-0">
+                
+                            <h2 class="lead"><b>{{ note.title }}</b></h2>
+                      <div class="card-body">
+                        {{ note.notes}}
+                      </div>
+                      
+                      <div class="card-footer">
+                        <div class="text-right">
+                          <a href="{% url 'delete' note.id %}" class="btn btn-sm bg-danger">
+                            <i class="fas fa-trash">delete</i>
+                          </a>
+                          <a href="{% url 'update' note.id %}" class="btn btn-sm btn-primary">
+                            <i class="fas fa-book"></i> update
+                          </a>
+                        </div>
+                      </div>
+                    
+                </div>
+                
+              </div>
+                <!-- /.card-body -->
+                
+                <!-- /.card-footer -->
+            </div>
+            
+            <!-- /.card -->
+      
+          <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+      
+    </div>
+    <!-- /.content-wrapper -->
+  </div>  
+{%endblock content%}
